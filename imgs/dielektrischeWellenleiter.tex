@@ -1,0 +1,25 @@
+\documentclass[../main.tex]{subfiles}
+
+
+\begin{document}
+
+\begin{tikzpicture}
+
+\draw node[below = 0.1cm, right=-0.2cm] at (0,0) {\tiny$0$};
+\draw [->] (0,0) -- node[below= 0.2cm, right=0.3cm] {$z$} (1, 0);
+\draw[->] (0,0) --node[above right] {$x$} (0,1);
+\draw[fill] circle(0.02cm) (0,0);
+\draw[dashed] (0,0) -- (5,0);
+
+\draw node[left] at (0,1.4) {$\frac{h}{2}$} edge (5,1.4);
+\draw node[left] at (0,-1.4) {$-\frac{h}{2}$} edge (5,-1.4);
+
+\fill [color=gray!50, path fading = north] (0,1.4) rectangle (5,2);
+\fill [color=gray!50, path fading = south] (0,-1.4) rectangle (5,-2);
+
+\node at (1.5,1.6) {$\tilde \varepsilon_3, \mu_0$};
+\node at (1.5, 0.6) {$\tilde \varepsilon_1, \mu_0$};
+\node at (1.5, -1.7) {$\tilde \varepsilon_2, \mu_0$};
+\end{tikzpicture}
+
+\end{document}

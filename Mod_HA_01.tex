@@ -1,0 +1,132 @@
+\documentclass[a4paper]{article}
+\usepackage{myStyle}
+\newcommand{\pot}{\mathrm {Pow}}
+\title{Hausaufgaben 01}
+\begin{document}
+\input{Titlepage_Mod.tex}
+\section{Extensionale Darstellung}
+\subsection{}
+$M$ enthält die natürlichen Zahlen $a$, für die $a=2b-3$ gilt, wobei $b$ eine natürliche Zahl kleiner als 4 ist.
+$$M = \{ 1,3\}.$$
+\subsection{} 
+$M$ enthält die reellen Zahlen $x$, die sich als Bruch $\frac{a}{b}$ darstellen lassen, mit ganzen Zahlen $a$ und $b$, für welche gilt $0<a\le b < 4$.
+$$M = \left\{ 1, \frac{1}{2}, \frac{1}{3}, \frac{2}{3} \right\}.$$
+\subsection{}
+M enthält die Tripel $(j,k,j-k)$, wobei $j$ und $k$ aus den ganzen Zahlen ohne 0 stammen und die Bedingung $|j-k|\le 2$ erfüllen und für die $j$ kleiner gleich $k$ ist.
+$$M = \{ (-2,-1,-1), (-2,1,-3), (-1,-1, 0), (-1,2,-3),(1,1,0), (1,2,-1)\}.$$
+
+%Aufgabe 2
+\section{Intensionale Darstellung}
+\subsection{} 
+$$M = \left\{ a: a\in ℕ, \frac{a}{3} \in ℕ \right\}.$$
+\subsection{}
+$$M = \{ a: a\in ℕ, \sqrt{a} \in ℕ\}.$$
+\subsection{}
+$$M = \{ A: A\subseteq ℕ \text{ endlich }, 2 \in A\}.$$
+
+%Aufgabe 3
+\section{Kartesisches Produkt und Potenzmenge}
+\subsection{}
+\begin{align*}
+    \text{Möbelstücke} &= \text{Holzart} \times \text{Möbelobjekt}\\
+    &=\left\{\begin{aligned} & \text{(Eiche, Tisch), (Eiche, Schrank), (Eiche, Stuhl),}\\
+    &\text{(Kiefer, Tisch), (Kiefer, Schrank), (Kiefer, Stuhl)}\end{aligned}\right\}
+\end{align*}
+Es gilt $|\text{Möbelstücke}| = 6$ und daher $|\pot(\text{Möbelstücke}) |=2^6 = 64$.
+\subsection{}
+Es ist $X\cup Y = \{\text{Hund, Katze }\}$ und 
+$$M_1 = \pot( X\cup Y ) = \{ ∅, \{ \text{Hund}\}, \{\text{Katze}\}, \{\text{Hund, Katze}\}\}.$$
+Außerdem ist $X\times Y = \{ (\text{Hund, Katze}) \}$ und
+$$\pot( X\times Y) = \{ ∅, \{ (\text{Hund, Katze}) \} \}.$$
+Ferner folgt
+$$M_2 = \pot( X\times Y) \times Z = \left\{ (∅,\text{Maus}), (∅, \text{Pferd}), ( \{ (\text{Hund, Katze}) \},\text{Maus}), (\{ (\text{Hund, Katze}) \}, \text{Pferd} ) \right\}$$
+und $|M_2| = 4$.
+\subsection{}
+\subsubsection{}
+\begin{align*}
+    A\cup C &= \{ \text{Englisch, Deutsch, Spanisch, Holländisch, Griechisch, Französisch} \},\\
+    A \cap B &= \{ \text{Englisch, Spanisch} \},\\
+    A\smallsetminus C &= \{ \text{Englisch, Spanisch, Holländisch} \}.
+\end{align*}
+\subsubsection{}
+\begin{align*}
+    A\smallsetminus B &= \{ \text{Deutsch, Holländisch} \},\\
+    (A\smallsetminus B) \cap C &= \{ \text{Deutsch} \},\\
+    A \cap C &= \{ \text{Deutsch} \},\\
+    (A\cap C) \smallsetminus B &= \{ \text{Deutsch} \}
+\end{align*}
+Korrektheit durch zweite und vierte Zeile gezeigt.
+
+\subsection{}
+Nach Vorlesung gilt für das karthesische Produkt $k := |M\times N| = m\cdot n$ und damit folgt für die zugehörige Potenzmenge
+$$|\pot ( M\times N)| = 2^k = 2^{m\cdot n}.$$
+
+\section{Induktiv definierte Menge}
+Die Menge der ungeraden, natürlichen Zahlen ist dadurch definiert, dass
+\begin{itemize}
+    \item das Anfangselement $1\in M$ ist, 
+    \item für $x\in M$ auch das Folgeelement $x+2 \in M$ ist.
+\end{itemize}
+
+\section{Induktionsbeweis}
+Es gilt zu zeigen, dass
+$$
+\sum_{k=1}^n k(k+1) = \frac{n(n+1)(n+2)}{3} \qquad ∀n\in ℕ$$
+Der Induktionsanfang für $n=1$ ist
+\begin{align*}
+    \sum_{k=1}^1 k(k+1) &= 1 (1+1) = 2 = \frac{1\cdot 2 \cdot 3}{3} = \frac{ 1(1+1)(1+2) }{3},
+\end{align*}
+hier gilt die Behauptung also. Also Induktionsvorraussetzung nehmen wir also an, für ein beliebiges, aber festes $n\in ℕ$ gilt
+\begin{equation}\label{eqn:iv}
+\sum_{k=1}^n k(k+1) = \frac{n(n+1)(n+2)}{3}\tag{$\star$}
+\end{equation}
+Im Induktionsschritt untersuchen wir den Fall $n+1$.
+Es gilt
+\begin{align*}
+    \sum_{k=1}^{n+1} &= \sum_{k=1}^n k(k+1) + (n+1)\left( (n+1) + 1 \right) \\
+    &\stackrel{\eqref{eqn:iv}}= \frac{n^3 + 3^n 2n}{3} + n^2 + 3n +2\\
+    &= \frac{n^3 + 6n^2 + 11 n + 6}{3} \\
+    &= \frac{(n+1) (n+2)(n+3) }{3}
+\end{align*}
+Also gilt die Aussage auch für $n+1$ und die Identität gilt nach dem Prinzip der vollständigen Induktion für alle natürlichen Zahlen.
+
+\section{Knobeltupel}
+$$A= \{ (x_1,…, x_k) \in ℕ^k: x_i = x_1\text{ für } 1\le i \le x_1 \}.$$
+
+%Aufgabe 7
+\setcounter{section}{6}
+\section{Hobbits und Eleben}
+\subsection{Intensionale Darstellung von Mengen}
+Die Menge der Hobbits $H$ ist mit der geforderten Modellierung als Tupel aus Volk und Nummer gegeben durch
+\begin{align*}
+    H &= \{ \text{Hobbit} \} \times \{ k \in ℕ: k \le m \} \\
+    &= \{ (\text{Hobbit}, k) : k\in ℕ, k\le m \} .
+\end{align*}
+Analog gilt für die Elben
+\begin{align*}
+    E &= \{ ( \text{Elben}, k) : k\in ℕ, k\le n\}.
+\end{align*}
+Zusammenfassend ist die Menge der Personen $P = H\cup E$. 
+Getränke seien ähnlich modelliert durch Tupel der Form $(\text{Getränk}, \text{Größe}, \text{Nummer})$, wobei wir zwischen Bier, Rotwein und Weißwein unterscheiden (die Weine könnte man alternativ auch durch eine zusätzliche Stelle im Tupel unterscheiden). Die Nummer brauchen wir in der nächsten Aufgabe, damit wir den wiederholten Konsum derselben Getränkesorte durch eine Person modellieren können. Man kann sie sich wie eine Vorratsnummer vorstellen. Seien dann:
+\begin{align*}
+    B &= \{ (\text{Bier}, x,k): x \in \{\text{klein, mittel,groß}\}, k\in ℕ \},\\
+    W_r &=  \{ (\text{Rotwein}, x,k): x \in \{\text{klein, mittel,groß}\} , k\in ℕ\}, \\
+    W_w &=  \{ (\text{Weißwein}, x,k): x \in \{\text{klein, mittel,groß}\} , k\in ℕ\},
+\end{align*}
+dann ist die Menge der Getränke $G = B\cup W_r \cup W_w$.
+
+\subsection{Getränke- und Kutschengruppen}
+Wenn die Reihenfolge keine Rolle spielt, können wir jeder Person eine Menge von Getränken, also eine Teilmenge von $\pot(G)$ zuordnen. Damit beschreibt
+$$P \times \pot (G) = \{ (p, A): p\in P, A \in \pot(G) \}$$
+den Getränkekonsum aller Personen, also insbesondere auch derer, die etwas getrunken haben.
+
+Die Menge aller möglichen Kutschengruppen ist $\pot(P)$, da sich immer endliche Teilmengen von verschiedenen Personen verabreden.
+
+\subsection{Konkrete Feier}
+Es seien $b_{\text{groß},k} := (\text{Bier}, \text{groß},k), r_{\text{klein}} = (\text{Rotwein},\text{klein},k_e \} \in G$ für ein $k_e \in ℕ$. Dann beschreibt die Relation 
+$$R_G = \left\{ \left(h_1, \{ b_{\text{groß},k_1}, b_{\text{groß},k_2}, b_{\text{groß},k_3} \} \right) , (e_1 , \{ r_{\text{klein}} \} )\right\}  \subseteq P\times \pot(G)$$
+für verschiedene $k_1,k_2,k_3\in ℕ$ den Getränkekonsum der Gruppe.
+
+Die Kutschengruppen sind
+$$\{ \{h_1,h_2, e_1\}, \{e_2,e_3\} \}.$$
+\end{document}
