@@ -1,0 +1,210 @@
+\documentclass[a4paper]{article}
+\usepackage{myStyle}
+\newcommand{\wup}{\upharpoonright}
+\newcommand{\pot}{\mathrm {Pow}}
+\title{Hausaufgaben 02}
+\begin{document}
+\input{Titlepage_Mod}
+
+% Aufgabe 1
+\section{Relationen und Eigenschaften}
+Es sei
+$$R = \left \{ (a,b) \in ℝ_{>0}^2 : \frac{a}{b}\in ℚ \right\}.$$
+\subsection{}
+Diese Relation ist
+\begin{itemize}
+\item reflexiv, denn für alle $a\in ℝ_{>0}$ ist $\frac{a}{a} = 1 \in ℚ$,
+\item nicht irreflexiv, da reflexiv,
+\item symmetrisch, denn wenn $\frac{a}{b}\in ℚ$, dann gilt auch 
+$$\frac{b}{a} = \frac{1}{\frac{a}{b}} \in ℚ,$$
+und umgekehrt, denn $ℚ$ ist ein Körper,
+\item transitiv, wenn $\frac{a}{b}\in ℚ$ und $\frac{b}{c}\in ℚ$, dann gilt auch
+$$\frac{a}{c} = \frac{a}{b} \div \frac{b}{c} \in ℚ.$$
+\item nicht asymmetrisch, z.B. $(1,3)\in R$ und $(3,1)\in R$,
+\item nicht alternativ, denn wenn $\frac{a}{b}\in ℚ, a\ne b$, dann gilt auch
+$$\frac{1}{\frac{a}{b}} = \frac{b}{a}\in ℚ,$$
+\item nicht antisymmetrisch,  z.B. $(1,3)\in R$ und $(3,1)\in R$, aber $1\ne 3$.
+\end{itemize}
+
+\subsection{}
+Die Relation ist reflexiv, symmetrisch und transitiv, also eine Äquivalenzrelation.
+% Aufgabe 2
+\setcounter{section}{1}
+\section{Graphen}
+\subsection{}
+Die Knoten sind 
+$$V = \{ A,B,C, D, E\}.$$
+Die Kanten sind
+$$V\times V \supset E = \{ (A,B), (A,E), (A,D), (A,C), (C, B), (C,E), (D,C) \}.$$
+
+\subsection{}
+Der Graph ist zyklenfrei, denn:
+\begin{itemize}
+\item Aus $A$ gehen lediglich Kanten heraus, aber nicht hinein, es gibt keinen Weg von $A$ nach $A$.
+\item In $B$ laufen lediglich Kanten hinein, nicht hinaus.
+\item In $E$ laufen lediglich Kanten hinein.
+\item Von $C$ kommt man nur nach $B$ oder $E$, aber von da aus nicht weiter zu $A$ oder $D$, um zu $C$ zurückzukommen.
+\item Weil man von $D$ aus auch nur nach $C$ kommt, gibt es auch keinen Weg von $D$ nach $D$.
+\end{itemize}
+
+\subsection{}
+Die dargestellte Relation ist \textbf{nicht} reflexiv, denn der Graph hat keine Schleifen.
+
+\subsection{}
+Die Relation ist transitiv, denn das einzige Paar von Kanten $(x,y), (y,z)\in E$ mit $x\ne y, x\ne z, y\ne z$ ist $(A,D), (D,C)$ und es gibt auch die Kante $(A,C)\in E$.
+
+% Aufgabe 3
+\setcounter{section}{2}
+\section{Funktionen}
+
+\subsection{}
+Gegeben ist $f\colon ℤ\times ℝ\to ℝ$ mit $f((a,b)) = \frac{a}{b}$.
+Die Funktion ist
+\begin{itemize}
+\item total, da sie für alle $(a,b)\in ℤ\times ℝ$ definiert ist.
+\item surjektiv, denn sei $y\in ℝ$, dann gilt für $(a,b)=(1, y^{-1})\in ℤ\times ℝ$:
+$$y = \frac{1}{y^{-1}} = f((a,b)).$$
+\item nicht injektiv, denn für $(a,b)\in ℤ\times ℝ$ und $k\in ℤ$ gilt
+$$f((a,b)) = \frac{a}{b} = \frac{ka}{kb} = f((ka,kb))$$
+und $(ka, kb)\in ℤ\times ℝ$.
+\item nicht bijektiv, da sie nicht injektiv ist.
+\end{itemize}
+
+\subsection{}
+Sei $f\colon A\to B$ und 
+$$f\wup_C = \{ (c,b) \in C\times B: (c,b)\in f\subset A\times B \}.$$
+
+\begin{enumerate}[label=\alph*)]
+\item $f\wup_C$ ist eine Funktion, denn $f\wup_C$ ist als Teilmenge von $f$ selbst eine binäre Relation über $A,B$ und aus $f(a) = b, f(a) = β \Rightarrow b=β$ für alle $(a,b), (a,β)\in f$ folgt diese Rechtseindeutigkeit auch für $f\wup_C$. 
+\item Die Injektivität der Einschränkung $f\wup_C$ impliziert \textbf{nicht} die Injektivität von $f$. Sei z.B. $A = \{1,2\}, B = \{ 1\}, C = \{ 1 \} \subset A$ und $f\colon A \to B$ definiert durch
+$$f(1) = f(2) = 1.$$
+Dann ist $f$ offensichtlich nicht injektiv, aber $f\wup_C = \{ (1, 1) \}$ schon.
+\item Ist $f\wup_C$ surjektiv, so ist $f$ ebenfalls surjektiv, denn dann gibt es für jedes $b\in B$ mindestens ein $c\in C$ mit $(c,b)\in f$ und wegen $f\subset A\times B$ ist $c\in A$. Somit gibt es für jedes $b$ in $B$ auch mindestens ein $c\in A$ mit $f(c) = b$. 
+\item Ist $f$ injektiv, so ist auch die Einschränkung $f\wup_C$ injektiv. Denn genau dann gilt 
+$$ x = y \Rightarrow f(x) = f(y) \qquad ∀ x,y \in A.$$
+Weil das für alle $x,y\in A$ gilt, gilt das auch für jede Teilmenge $C\subseteq A$.
+\item Aus der Surjektivität von $f$ folgt \textbf{nicht} die Surjektivität der Einschränkung. Sei z.B.
+$$A = \{ 1,2\}, B = \{ 1,2\}, C = \{ 1\}, \quad f\colon A\to B, f(1) = 1, f(2) = 2.$$
+Dann ist $f$ surjektiv, denn $f(A) = B$, aber $f\wup_C = \{ (1,1) \}$ nicht, da es für $2 \in B$ kein Urbild gibt.
+\end{enumerate}
+
+% aufgabe 4
+\section{Beweisen/Widerlegen}
+Seien $α,β, γ,δ$ aussagenlogische Formeln. 
+\begin{enumerate}
+\item \textbf{Falsch}, man betrachte z.B. die aussagenlogische Formel $α = ( A\vee \neg A) \wedge B$.
+Die Formel ist ist falsifizierbar, denn $I(α) = f$ für $I(B) = f$, aber $I(A\vee\neg A) = w$.
+\item \textbf{Wahr}. Es gilt zu zeigen
+$$α \vDash β ⇔ α\wedge \neg β \text{ ist widerspruchsvoll.}$$
+Zeige „$\Rightarrow$“: Per Definition gilt
+$$α\vDash β :⇔ \left( I(α) = w \Rightarrow I(β) = w \text{ für alle Bewertungen $I$}\right)$$ 
+Wegen $I(β) = w ⇔ I(\neg β) = f$ gilt also
+$$α\vDash β ⇔ I(α) = w \Rightarrow I(\neg β) = f \text{ für alle Bewertungen $I$}.$$
+Damit ist genau für $α\vDash β$ die Bedingung $I(\neg β) = f$ notwendig für $I(α) = w$ und damit 
+$$α\vDash β ⇔ I(α\wedge \neg β ) = f \text{ für alle Bewertungen $I$.}$$
+Für „$\Leftarrow$“ sei jetzt $α\wedge \neg β$ widerspruchsvoll. Man hat folgende Wahrheitstafel zur Darstellung der zulässigen Bewertungen:
+\begin{center}
+\begin{tabular}{c|c|c|c}
+$α\wedge \neg β$ & $α$ & $\neg β$ & $β$ \\ \hline
+0 & 0 & 0 & 0\\
+0 & 0 & 1 & 0\\
+0 & 1 & 0 & 1
+\end{tabular}
+\end{center}
+Also muss für jede Bewertung mit $I(α) = w$ auch $I(β) = w$ sein und es gilt $α\vDash β$.
+\item \textbf{Wahr}. Es gilt nämlich 
+$$\neg α \vee β \approx \neg (α\wedge \neg β),$$
+also ist $\neg a \vee β$ genau dann Tautologie, wenn $α\wedge β$ widerspruchsvoll ist. 
+Nach 2. ist das genau der Fall, wenn $α\vDash β$ gilt.
+\item \textbf{Wahr}, man kann folgende Wahrheitstafel aufstellen
+\begin{center}
+\begin{tabular}{c|c|c|c|c|c|c|c}
+$α$ & $β$ & $γ$ & $α\vee β$ & $\neg β$ & $\neg β \vee γ$ & $(α\vee β)\wedge ( \neg β \vee γ )$ & $α\vee γ$\\\hline
+0&0&0&0&1&1&0&0\\
+0&0&1&0&1&1&0&1\\
+0&1&0&1&0&0&0&0\\
+1&0&0&1&1&1&\textcolor{green}1&\textcolor{green}1\\
+0&1&1&1&0&1&\textcolor{green}1&\textcolor{green}1\\
+1&0&1&1&1&1&\textcolor{green}1&\textcolor{green}1\\
+1&1&0&1&0&0&0&1\\
+1&1&1&1&0&1&\textcolor{green}1&\textcolor{green}1
+\end{tabular}
+\end{center}
+Aus $I((α\vee β)\wedge ( \neg β \vee γ )) = w$ folgt also $I(a\vee γ) = w$.
+\item \textbf{Wahr}, negiere beide Seiten.
+\item Offensichtliich \textbf{wahr}. Man kann auch eine Wahrheitstafel basteln
+\begin{center}
+\begin{tabular}{c|c|c|c|c|c|c|c}
+$α$ & $β$ & $γ$ & $δ$ & $\neg α$ & $\neg α\vee γ $ & $\neg β$ & $\neg β \vee δ$\\ \hline
+0&0&0&0&1&1&1&1\\
+1&1&0&0&0&0&0&0\\
+0&0&1&1&1&1&1&1\\
+1&1&1&1&0&1&0&1
+\end{tabular}
+\end{center}
+Genau in diesen vier Fällen ist die Voraussetzung erfüllt und dort gilt $I( \neg α\vee γ) = I(\neg β\vee δ)$.
+
+\item \textbf{Falsch}. Gegenbeispiel:\\
+Es gelte $I(α) = w, I(β) = f, I(γ) = w, I(δ) = f$. 
+Dann gilt 
+$$I(α\to γ) = I( β\to δ) = w,\ \text{aber $α\not \approx β, γ\not \approx δ$}.$$
+\end{enumerate}
+
+\section{Modellierung, semantische Folgerung}
+\begin{itemize}
+\item W: Genug Wechselgeld,
+\item K: Genug Kaffee,
+\item B: Lampe leuchtet.
+\end{itemize}
+$$\mathcal M = \{ \neg W \to \neg B, \neg K\to \neg B\}.$$
+Für den Automaten gilt
+\begin{center}
+\begin{tabular}{c|c|c||c|c||c}
+$B$ & $W$ & $K$ & $\neg W\to \neg B$ & $\neg K \to \neg B$ & $\mathcal M$\\ \hline
+0&0&0&1&1&1\\
+0&0&1&1&1&1\\
+0&1&0&1&1&1\\
+0&1&1&1&1&1\\
+1&0&0&0&0&0\\
+1&0&1&0&1&0\\
+1&1&0&1&0&0\\
+1&1&1&1&1&1
+\end{tabular}
+\end{center}
+\subsection{}
+Zu zeigen: Wenn eine Belegung $\mathcal M$ erfüllt, impliziert die Lampe genug Kaffee und Wechselgeld.
+Aus der ersten Tabelle liest man die erfüllenden Belegungen ab und erhält für diese Zustände:
+\begin{center}
+\begin{tabular}{c|c|c|c||c}
+$B$ & $W$ & $K$ & $W\wedge K$ & $B\to (W\wedge K)$\\ \hline
+0&0&0&0&1\\
+0&0&1&0&1\\
+0&1&0&0&1\\
+0&1&1&1&1\\
+%1&0&0&0&0\\
+%1&0&1&0&0\\
+%1&1&0&0&0\\
+1&1&1&1&1
+\end{tabular}
+\end{center}
+Also $M\vDash \left( B\to (W\wedge B)\right)$.
+
+\subsection{}
+Es gilt zu zeigen oder zu widerlegen, dass
+$$\mathcal M \wedge (W\wedge K) \vDash W\wedge K\wedge B.$$
+\begin{proof}
+Die Aussage ist \textbf{nicht} gültig, denn es gilt
+\begin{align*}
+\mathcal M &= (\neg W \to \neg B) \wedge (\neg K\to \neg B) &\text{Definition: $α\to β = \neg α \vee β$}\\
+&= \left( \neg(\neg W) \vee \neg B \right) \wedge \left( \neg(\neg K) \to \neg B \right) &\text{Negation: $\neg\neg α = α$}\\
+&= ( W\vee \neg B) \wedge ( K \vee \neg B) &\text{Distributivgesetz: $(α\vee γ) \wedge (β\vee γ) = (α\wedge β)\vee γ$}\\
+&= (W\wedge K) \vee \neg B.
+\end{align*}
+Damit folgt
+\begin{align*}
+\mathcal M \wedge ( W\wedge K) &= \left( (W\wedge K) \vee \neg B\right) \wedge (W\wedge K) &\text{Absorption: $(α\vee β) \wedge α \approx α$}\\
+&= (W\wedge K)
+\end{align*}
+Wenn nun $I(W\wedge K) = w$, aber $I(B) = f$ ist, so ist auch $I(W\wedge K\wedge B) = f$.
+\end{proof}
+\end{document}
